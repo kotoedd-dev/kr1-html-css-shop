@@ -1,7 +1,15 @@
-<<<<<<< HEAD
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
 @font-face {
   font-family: 'BeerClickFont'; 
-  src: url('../fonts/modula.ttf') format('truetype'); 
+  src: url('../fonts/MSW98UI-Regular.otf') format('truetype'); 
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -43,22 +51,16 @@
   --container-width: 2000px;
 }
 
-=======
-/* 
-  Универсальное правило для всех элементов.
-  border-box делает расчёт размеров более понятным:
-  width включает content, padding и border.
-*/
->>>>>>> 678fe339ebaa9ea517e7e2a52afaa211c51d02b6
 * {
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
 }
-
+h2 {
+  font-size: 18px;
+}
 h1, h2, h3 {
   font-family: 'BeerClickFont', sans-serif;
   margin: 0;
@@ -86,16 +88,16 @@ h1 {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-text);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-text);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(---color-text);
   outline-offset: 3px;
 }
 
@@ -122,25 +124,35 @@ a:focus-visible {
   object-fit: contain;
 }
 
-.logo-text {
+.window-work-area .logo-container a.logo-text,
+.window-work-area .logo-container a.logo-text:visited {
   font-family: 'BeerClickFont', sans-serif; 
   font-size: 32px;
-  font-weight: 1000;
-  color: hsl(0, 0%, 0%); 
+  font-weight: 900; 
+  color: #000000 !important; /* Убирает влияние других стилей */
   text-decoration: none;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+/* Состояние при наведении */
+.window-work-area .logo-container a.logo-text:hover {
+  transform: translateY(-2px);
+  color: #FFD84D!important; /* Заставит цвет измениться */
+  text-shadow: 2px 2px 0px #000, 4px 4px 0px #808080;
 }
 
 .window-work-area {
   background-color: #ffffff !important; 
-  padding: 4px 12px;                    
-
+  padding: 12px 16px;                 
+  flex-direction: column; 
   border-top: 2px solid #808080 !important;
   border-left: 2px solid #808080 !important;
   border-right: 2px solid #ffffff !important;
   border-bottom: 2px solid #ffffff !important;
   
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .logo-text {
@@ -196,6 +208,7 @@ a:focus-visible {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 18px;
 
 }
 
@@ -206,12 +219,13 @@ a:focus-visible {
 }
 
 .button--primary {
-  color: var(--color-white);
-  background-color: var(--color-primary);
+  color: var(--color-#000000);
+  background-color: var(--color-bg);
 }
 
 .button--primary:hover {
-  background-color: var(--color-primary-dark);
+  color: var(--color-#000000);
+  background-color: var(--color-text);
 }
 
 .button--secondary {
@@ -242,9 +256,10 @@ footer {
 
 .breadcrumbs {
   max-width: var(--container-width);
-  margin: 0 auto var(--space-md);
-  font-size: 14px;
+  font-size: 18px;
   color: var(--color-muted);
+  margin-bottom: 20px;
+  position: static; 
 }
 
 .breadcrumbs__link {
@@ -350,6 +365,7 @@ footer {
 }
 
 .hero__work-area p {
+  font-size: 24px;
   margin-bottom: 32px;
   line-height: 1.6;
   color: #222222;
@@ -455,12 +471,12 @@ footer {
 }
 
 .catalog-layout {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  grid-template-areas: "filters products";
-  gap: var(--space-lg);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Прижимает содержимое к левому краю */
+  align-items: flex-start;
+  gap: 20px; /* Задает фиксированное расстояние между фильтрами и товарами */
+  width: 100%;
 }
 
 .catalog-filters {
@@ -469,6 +485,7 @@ footer {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface-aside);
+  margin-top: -25px;
 }
 
 .catalog-products {
@@ -476,14 +493,24 @@ footer {
 }
 
 .filters-form {
-  display: grid;
-  gap: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface-card);
+  border-radius: 0;
+  
+  border-top: 2px solid var(--win-border-light);
+  border-left: 2px solid var(--win-border-light);
+  border-right: 2px solid var(--win-border-dark);
+  border-bottom: 2px solid var(--win-border-dark);
+  box-shadow: 1px 1px 0px 0px var(--win-border-shadow);
 }
 
 .filters-form fieldset {
   margin: 0;
   padding: var(--space-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-white);
   border-radius: var(--radius-sm);
 }
 
@@ -501,7 +528,7 @@ footer {
   padding: 8px 10px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
   color: var(--color-text);
   font: inherit;
 }
@@ -583,264 +610,4 @@ footer {
   padding: var(--space-md);
   border-left: 4px solid var(--color-success);
   background-color: var(--color-success-bg);
-=======
-/*
-  Убираем стандартный внешний отступ браузера у body.
-  Без этого вокруг страницы может появиться белая рамка.
-*/
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #222222;
-  background-color: #ffffff;
-}
-/*
-  Задаём внутренние отступы для основных областей страницы.
-  Это делает содержимое визуально отделённым от краёв окна браузера.
-*/
-header,
-main,
-footer {
-  padding: 20px;
-}
-
-/*
-  Оформляем шапку страницы.
-  Пока используется простой светло-серый фон.
-*/
-header {
-  background-color: #f2f2f2;
-}
-
-/*
-  Оформляем подвал страницы тем же фоном,
-  чтобы визуально отделить его от основного содержимого.
-*/
-footer {
-  background-color: #f2f2f2;
-}
-/*
-  Ограничиваем ширину содержимого шапки,
-  чтобы оно не растягивалось слишком сильно на широких экранах.
-*/
-.site-header {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/*
-  Оформляем текстовый логотип.
-*/
-.site-logo {
-  font-weight: bold;
-  text-decoration: none;
-  color: #222222;
-}
-
-/*
-  Убираем стандартные отступы и маркеры списка навигации.
-*/
-.site-nav__list {
-  padding: 0;
-  margin: 16px 0 0;
-  list-style: none;
-}
-
-/*
-  Добавляем расстояние между пунктами меню.
-*/
-.site-nav__list li {
-  margin-bottom: 8px;
-}
-
-/*
-  Оформляем ссылки меню.
-*/
-.site-nav__list a {
-  color: #0057b8;
-  text-decoration: none;
-}
-
-/*
-  При наведении мыши подчёркиваем ссылку.
-  Подробно состояния интерфейса будут рассмотрены в практической работе 1.7.
-*/
-.site-nav__list a:hover {
-  text-decoration: underline;
-}
-/*
-  Hero-блок — первый крупный блок страницы.
-  Он визуально отделяется от остальных разделов фоном и отступами.
-*/
-.hero {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-  padding: 32px 20px;
-  background-color: #eef5ff;
-  border-radius: 12px;
-}
-
-/*
-  Общий класс для разделов страницы.
-*/
-.section {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-}
-
-/*
-  Убираем лишний верхний отступ у заголовков разделов.
-*/
-.section h2 {
-  margin-top: 0;
-}
-/*
-  Карточка товара — самостоятельный блок.
-  На следующих занятиях карточки будут доработаны и выстроены в сетку.
-*/
-.product-card {
-  margin-bottom: 16px;
-  padding: 16px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  background-color: #ffffff;
-}
-
-/*
-  Убираем лишний верхний отступ у заголовка карточки.
-*/
-.product-card h3 {
-  margin-top: 0;
-}
-/*
-  Пока это обычная ссылка, но визуально она оформляется как кнопка.
-*/
-.button {
-  display: inline-block;
-  padding: 10px 16px;
-  color: #ffffff;
-  background-color: #0057b8;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-/*
-  Простое состояние наведения для кнопки.
-*/
-.button:hover {
-  background-color: #003f86;
-}
-
-/*
-  Дополнительный информационный блок.
-*/
-.aside-info {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-  padding: 16px;
-  border-left: 4px solid #0057b8;
-  background-color: #f7f7f7;
-}
-/*
-  Модальное окно.
-  Элемент dialog сам умеет открываться поверх страницы.
-*/
-.order-dialog {
-  width: min(100% - 32px, 560px);
-  padding: 24px;
-  border: none;
-  border-radius: 12px;
-}
-
-/*
-  Затемнение фона за модальным окном.
-*/
-.order-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/*
-  Поле формы.
-  Каждый блок получает нижний отступ.
-*/
-.form-field {
-  margin-bottom: 16px;
-}
-
-/*
-  Подпись поля.
-*/
-.form-field label {
-  display: block;
-  margin-bottom: 6px;
-}
-
-/*
-  Основные поля формы.
-*/
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font: inherit;
-}
-
-/*
-  Checkbox не должен занимать всю ширину.
-*/
-.form-field input[type="checkbox"] {
-  width: auto;
-}
-
-/*
-  Подсказка под полем телефона.
-*/
-.form-field small {
-  display: block;
-  margin-top: 4px;
-  color: #666666;
-}
-
-/*
-  Видимый фокус для клавиатурной навигации.
-*/
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
-  outline: 2px solid #0057b8;
-  outline-offset: 2px;
-}
-
-/*
-  Подсветка ошибочных полей.
-  Атрибут aria-invalid будет добавляться через JavaScript.
-*/
-[aria-invalid="true"] {
-  border-color: #b00020;
-}
-
-/*
-  Кнопки формы.
-*/
-.form-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-/*
-  Сообщение об успешной отправке.
-*/
-.success-message {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 16px;
-  border-left: 4px solid #168a2f;
-  background-color: #eefaf0;
->>>>>>> 678fe339ebaa9ea517e7e2a52afaa211c51d02b6
 }

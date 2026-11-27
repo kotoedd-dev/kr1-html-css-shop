@@ -8,26 +8,77 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
+  <header class="site-header win98-window ">
+
+    <div class="window-title-bar">
+      <div class="title-bar-text">explorer.exe</div>
+
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" type="button">_</button>
+        <button aria-label="Maximize" type="button">🗖</button>
+        <button aria-label="Close" type="button">✕</button>
+      </div>
+    </div>
+
+    <div class="site-header__inner">
+
+      <div class="window-work-area">
+        <div class="logo-container">
+          <a href="/" class="logo-link">
+            <img src="img/logo_bc.png" alt="BeerClick" class="logo-img">
+          </a>
+
+          <a href="/" class="logo-text">BEERCLICK</a>
+        </div>
+      </div>
+
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-          <li><a href="index.html#advantages">Преимущества</a></li>
-          <li><a href="index.html#popular">Популярные товары</a></li>
-          <li><a href="index.html#contacts">Обратная связь</a></li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">ГЛАВНАЯ</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">КАТАЛОГ</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">КОНТАКТЫ</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">ПРЕИМУЩЕСТВА</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">ПОПУЛЯРНЫЕ ТОВАРЫ</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#contacts">ОБРАТНАЯ СВЯЗЬ</a>
+          </li>
+
         </ul>
       </nav>
+
     </div>
   </header>
   <main>
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-    <a class="breadcrumbs__link" href="index.html">Главная</a>
-    <span class="breadcrumbs__current">Каталог</span>
-    </nav>
+    <section class="hero win98-window">
+      <div class="window-title-bar">
+        <div class="title-bar-text">catalog.exe</div>
+            <div class="title-bar-controls">
+              <button aria-label="Minimize" type="button">_</button>
+              <button aria-label="Maximize" type="button">🗖</button>
+              <button aria-label="Close" type="button">✕</button>
+            </div>
+      </div>
+    <div class="window-work-area">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Каталог</span>
+      </nav>
     
     <section class="catalog-layout">
       <aside class="catalog-filters">
@@ -80,6 +131,7 @@
             <p class="product-card__price">Цена: 2000 руб.</p>
             <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
         </article>
+        </div>
         </div>
             </section>
     </section>
